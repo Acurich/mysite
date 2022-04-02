@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>E-Learning App - My Account</title>
+</head>
+<body>
+    {% extends 'myapp/base.html' %}
+
+    {% block  body_block %}
+        <h1>My Account</h1>
+        <hr/>
+        <p>First name: <b>{{ first_name }}</b></p>
+        <p>Last name: <b>{{ last_name }}</b></p>
+        <h3>Topics Interested In:</h3>
+        <ol>
+            {% for topic in topics_interested %}
+                <li><a href="/myapp/detail/{{ topic.id }}">{{ topic.name }}</a></li>
+            {% endfor %}
+        </ol>
+
+        <h3>Courses:</h3>
+        <ol>
+            {% for course in courses_ordered %}
+                <li> {{ course.title }} </li>
+            {% endfor %}
+        </ol>
+        <a href="/myapp/"> << Go to Home </a>
+    {% endblock %}
+</body>
+</html>

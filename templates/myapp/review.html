@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>E-Learning App - Reviews</title>
+</head>
+<body>
+    {% extends 'myapp/base.html' %}
+    {% block body_block %}
+        <h2>Review Course</h2>
+         <form action="{% url 'myapp:review' %}" method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" name="submit1" value="Submit a Review" />
+        </form>
+        <p style="color: red;">{{ error_msg }}</p>
+    {% endblock %}
+</body>
+</html>

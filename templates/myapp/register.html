@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>E-Learning App - Register</title>
+</head>
+<body>
+{#    {% extends 'myapp/base.html' %}#}
+     <h2>Register as a Student</h2>
+     <form method="POST">
+         {% csrf_token %}
+         {{ form.as_p }}
+         <input type="submit" name="submit1" value="Register" />
+         <br/><br/><a href="/myapp/"> << Go Back to Home </a>
+     </form>
+</body>
+</html>

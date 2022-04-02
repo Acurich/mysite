@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>E-Learning App</title>
+    <style>
+        .sub_text
+        {
+            background-color: #ccd9ed;
+            color: #3270cf;
+        }
+    </style>
+</head>
+<body>
+    {% extends 'myapp/base.html' %}
+    {% csrf_token %}
+
+    {% block body_block %}
+        <h2 class="sub_text">
+            Last Logged In : {{ last_login }} {{ user_firstname }}
+        </h2>
+        {% if top_list %}
+            <h2>List of Topics</h2>
+            <ol>
+                {% for top  in top_list %}
+                    <li> <a href="/myapp/detail/{{ top.id }}"> {{ top.name}} </a> </li>
+                {% endfor %}
+            </ol>
+        {% else %}
+            <strong>There are no available topics!</strong>
+        {% endif %}
+    {% endblock %}
+</body>
+</html>
